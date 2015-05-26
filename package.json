@@ -1,0 +1,19 @@
+{
+  "name": "electron-todo-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "browser.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron-prebuilt": "^0.26.1"
+  },
+  "dependencies": {
+    "async-q": "^0.2.2",
+    "diskdb": "^0.1.14",
+    "q": "^1.4.1"
+  }
+}

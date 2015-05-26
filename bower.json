@@ -1,0 +1,25 @@
+{
+  "name": "examples",
+  "main": "index.js",
+  "version": "0.0.0",
+  "authors": [
+    "Leon Plata <loen.pc@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.15",
+    "font-awesome": "~4.3.0",
+    "lodash": "~3.9.3",
+    "materialize": "~0.96.1",
+    "ui-router": "~0.2.15",
+    "hammerjs": "~2.0.4",
+    "animate.css": "~3.3.0"
+  }
+}

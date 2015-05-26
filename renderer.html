@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="mainapp">
+	<head>
+		<title>Demo</title>
+		<link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css" />
+		<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="bower_components/animate.css/animate.min.css" />
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body class="noselect" ng-controller="MainController">
+		<div class="navbar-fixed">
+		  <nav>
+		    <div class="nav-wrapper window-drag">
+		      <ul class="right window-nodrag">
+						<li><a ng-click="openInstance()"><i class="fa fa-file"></i></a></li>
+		        <li><a ng-click="closeWindow()"><i class="fa fa-times"></i></a></li>
+		      </ul>
+		    </div>
+		  </nav>
+		</div>
+		<div class="container">
+			<div class="row">
+      	<div class="col s12">
+					<h2>TODO LIST</h2>
+					<hr />
+				</div>
+			</div>
+			<div class="row">
+      	<form class="col s12 m6 l6">
+					<div class="row">
+						<div class="input-field col s12">
+		          <input id="title-input" type="text" class="validate" ng-model="title">
+		          <label for="title-input">Title</label>
+		        </div>
+					</div>
+					<div class="row">
+		        <div class="input-field col s12">
+		          <textarea id="content-textarea" class="materialize-textarea" ng-model="content"></textarea>
+		          <label for="content-textarea">Content</label>
+		        </div>
+		      </div>
+					<div class="row">
+						<div class="col s12">
+							<button class="waves-effect waves-light btn" ng-click="addTodo()"><i class="fa fa-plus right"></i>add</button>
+						</div>
+					</div>
+				</form>
+      	<div class="col s12 m6 l6">
+					  <ul class="collection">
+					    <li class="collection-item avatar animated bounceIn" ng-repeat="todo in todos">
+					      <i class="mdi-av-play-arrow circle red"></i>
+					      <span class="title">{{todo.title}}</span>
+								<p>{{todo.createdAt | date: 'short'}}</p>
+					      <p>{{todo.content}}</p>
+					      <a class="secondary-content pointer" ng-click="removeTodo(todo)"><i class="fa fa-times"></i></a>
+					    </li>
+					  </ul>
+				</div>
+			</div>
+		</div>
+		<script type="application/javascript" src="bower_components/lodash/lodash.min.js"></script>
+		<!-- electron issue, when the jquery detects that the environment supports commonjs then it is not appended
+		to the window object -->
+		<script type="application/javascript">
+			window.$ = window.jQuery = require("./bower_components/jquery/dist/jquery.min.js");
+			window.Hammer = require("./bower_components/hammerjs/hammer.min.js");
+		</script>
+		<script type="application/javascript" src="bower_components/angular/angular.min.js"></script>
+		<script type="application/javascript" src="bower_components/ui-router/release/angular-ui-router.min.js"></script>
+		<script type="application/javascript" src="bower_components/materialize/dist/js/materialize.min.js"></script>
+		<script type="application/javascript" src="renderer.js"></script>
+	</body>
+</html>
